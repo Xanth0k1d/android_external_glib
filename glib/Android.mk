@@ -46,4 +46,7 @@ LOCAL_CFLAGS:= \
 
 LOCAL_MODULE:=libglib
 
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH) \
+                           $(LOCAL_PATH)/../
+
 include $(BUILD_SHARED_LIBRARY)

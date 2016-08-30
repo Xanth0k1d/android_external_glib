@@ -16,7 +16,7 @@ have_libtool=false
 if libtoolize --version < /dev/null > /dev/null 2>&1 ; then
 	libtool_version=`libtoolize --version | sed 's/^[^0-9]*\([0-9.][0-9.]*\).*/\1/'`
 	case $libtool_version in
-	    1.4*|1.5*|2.2*)
+	    1.4*|1.5*|2.4*)
 		have_libtool=true
 		;;
 	esac
@@ -34,7 +34,7 @@ fi
 	echo "You must have gtk-doc installed to compile $PROJECT."
 	echo "Install the appropriate package for your distribution,"
 	echo "or get the source tarball at ftp://ftp.gnome.org/pub/GNOME/sources/gtk-doc/"
-	DIE=1
+#	DIE=1
 }
 
 (autoconf --version) < /dev/null > /dev/null 2>&1 || {
@@ -45,9 +45,9 @@ fi
 	DIE=1
 }
 
-if automake-1.10 --version < /dev/null > /dev/null 2>&1 ; then
-    AUTOMAKE=automake-1.10
-    ACLOCAL=aclocal-1.10
+if automake-1.15 --version < /dev/null > /dev/null 2>&1 ; then
+    AUTOMAKE=automake-1.15
+    ACLOCAL=aclocal-1.15
 else if automake-1.9 --version < /dev/null > /dev/null 2>&1 ; then
     AUTOMAKE=automake-1.9
     ACLOCAL=aclocal-1.9
@@ -66,7 +66,7 @@ fi
 
 test $TEST_TYPE $FILE || {
 	echo "You must run this script in the top-level $PROJECT directory"
-	exit 1
+#	exit 1
 }
 
 if test -z "$AUTOGEN_SUBDIR_MODE"; then
